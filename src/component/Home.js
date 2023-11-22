@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const { user } = useSelector((state) => state.userState);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate("/books");
+    }
+  }, [user]);
   return (
     <div className="header">
       <div className="row1">

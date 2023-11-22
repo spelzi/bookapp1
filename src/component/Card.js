@@ -12,9 +12,9 @@ const Card = (props) => {
         let thumbnail =
           item.volumeInfo.imageLinks &&
           item.volumeInfo.imageLinks.smallThumbnail;
-        let amount = item.saleInfo.listPrice && item.saleInfo.listPrice.amount;
+        let amount = Math.floor(Math.random() * 10000) + ".00";
 
-        if (thumbnail != undefined && amount != undefined) {
+        if (thumbnail !== undefined) {
           return (
             <>
               <div
@@ -30,7 +30,7 @@ const Card = (props) => {
                   <h3 className="title">{item.volumeInfo.title}</h3>
                   <br />
                   <br />
-                  <p className="amount">&#8358;;{amount}</p>
+                  <p className="amount">&#8358;{amount}</p>
                 </div>
               </div>
               <Modal
