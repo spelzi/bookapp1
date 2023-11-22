@@ -5,9 +5,7 @@ import { logout } from "./userSlice";
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    // baseUrl: "https://utivablog-project-server.onrender.com/api/v1/",
-
-    baseUrl: "http://localhost:3001/api/",
+    baseUrl: "https://bookrecommendation-t6qc.onrender.com/api/",
   }),
   endpoints: (builder) => ({
     loginUser: builder.mutation({
