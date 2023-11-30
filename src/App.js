@@ -1,18 +1,15 @@
-import Main from "./component/Main";
+import Home from "./component/Home";
+import About from "./component/About";
+import Service from "./component/Service";
+import AuthLog1 from "./component/AuthLog";
+import Authreg1 from "./component/Authreg";
 import "./App.css";
 import MainNav from "./component/MainNav";
 import { Fragment } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import AuthPage from "./pages/AuthPage";
-import Login from "./component/auth/Login";
-import Register from "./component/auth/Register";
-import Home from "./component/Home";
-import { ProtectedRoute } from "./component/ProtectedRoute";
+import ForgetPass from "./component/ForgetPass";
 
 function App() {
-  const { user } = useSelector((state) => state.userState);
-
   return (
     <Fragment>
       <header>
@@ -22,19 +19,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
 
-          <Route
-            path="/books"
-            element={
-              <ProtectedRoute user={user}>
-                <Main />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route path="/get-started" element={<AuthPage />}>
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-          </Route>
+          <Route path="about" element={<About />} />
+          <Route path="service" element={<Service />} />
+          <Route path="/login" element={<AuthLog1 />} />
+          <Route path="/login/forgetPassword" element={<ForgetPass />} />
+          <Route path="getstarted/register" element={<Authreg1 />} />
         </Routes>
       </main>
     </Fragment>

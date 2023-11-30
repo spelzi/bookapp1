@@ -1,61 +1,41 @@
-import React, { useEffect } from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import React from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useGetCurrentUserMutation } from "../lib/redux/userApi";
-import { useLogoutUserMutation } from "../lib/redux/authApi";
-import { useSelector } from "react-redux";
+import "./style.css";
+import imglogo from "../image/funiturelogo.webp";
 
 const MainNav = () => {
-  const [getCurrentUser, { data }] = useGetCurrentUserMutation();
-  const [logoutUser] = useLogoutUserMutation();
-
-  const { user } = useSelector((state) => state.userState);
-
-  useEffect(() => {
-    const getCurrentUserData = async () => {
-      await getCurrentUser();
-    };
-
-    getCurrentUserData();
-  }, [user, getCurrentUser]);
-
-  const onLogoutUser = () => {
-    logoutUser();
-  };
   return (
-    <Navbar expand="lg" className="bg-body-">
-      <Container>
-        <Navbar.Brand style={{ color: "#d4b996ff" }} href="/">
-          {" "}
-          Book Library
+    <div className="header">
+      <Container className="header1">
+        <Navbar.Brand href="/">
+          <img src={imglogo} alt="" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto"></Nav>
-
-          <Nav>
-            {!user && (
-              <Link
-                style={{ textDecoration: "none", color: "#d4b996ff" }}
-                to="/get-started/login"
-              >
-                Login
-              </Link>
-            )}
-
-            {user && (
-              <Link
-                style={{ textDecoration: "none", color: "#d4b996ff" }}
-                to=""
-                onClick={onLogoutUser}
-              >
-                logout
-              </Link>
-            )}
-          </Nav>
-        </Navbar.Collapse>
+        <Nav className="navlink">
+          <Link className="navlink1" to="/">
+            HOME
+          </Link>
+          <Link className="navlink1" to="/about">
+            ABOUT
+          </Link>
+          <Link className="navlink1" to="/service">
+            SERVICE
+          </Link>
+          <div className="auth">
+            <Link className="auth1" to="/getstarted/register">
+              GET STARTED
+            </Link>
+            /
+            <Link className="auth1" to="/login">
+              LOGIN
+            </Link>
+          </div>
+        </Nav>
+        <Link className="icon" to="">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </Link>
       </Container>
-    </Navbar>
+    </div>
   );
 };
 
