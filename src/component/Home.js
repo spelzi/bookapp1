@@ -81,7 +81,7 @@ const Home = () => {
             subsequently became the
             <br /> prototype of modern folding chairs
           </p>
-          <a href="">Learn more</a>
+          <a href="/more">Learn more</a>
         </div>
         <div className="row4">
           <img src={photo} alt="" />

@@ -39,8 +39,8 @@ const Authreg1 = () => {
               </Form.Group>
               <Form.Group className="formgroup">
                 <input type="checkbox" /> I have read the Terms,{" "}
-                <a href="" className="signs">
-                  Codition and policy
+                <a href="/condition/policy" className="signs">
+                  Condition and policy
                 </a>
               </Form.Group>
               <Button style={{ width: "100%" }}> Submit </Button>

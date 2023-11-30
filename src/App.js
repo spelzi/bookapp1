@@ -6,8 +6,9 @@ import Authreg1 from "./component/Authreg";
 import "./App.css";
 import MainNav from "./component/MainNav";
 import { Fragment } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import ForgetPass from "./component/ForgetPass";
+import ConPolicy from "./component/ConPolicy";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<AuthLog1 />} />
           <Route path="/login/forgetPassword" element={<ForgetPass />} />
           <Route path="getstarted/register" element={<Authreg1 />} />
+          <Route path="/condition/policy" element={<ConPolicy />} />
         </Routes>
       </main>
     </Fragment>
